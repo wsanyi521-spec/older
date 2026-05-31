@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>银发护卫 APP - 高保真手机交互版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         CENTRAL HIGH-FIDELITY MOBILE SMARTPHONE MOCKUP
+         ========================================== -->
+    <div class="phone-viewport-container" id="mobile-viewport">
+        
+        <!-- Notch island -->
+        <div class="phone-notch-island"></div>
+        
+        <!-- iOS Home gesture indicator bar -->
+        <div class="phone-home-indicator-bar"></div>
+        
+        <!-- Status Bar -->
+        <div class="phone-system-bar" id="phone-sys-bar">
+            <span id="sys-time-label">12:30</span>
+            <span style="font-family: sans-serif; letter-spacing: 0.5px;">信号 5G | 🔋 98%</span>
+        </div>
+        
+        <!-- App Header Bar -->
+        <div class="mobile-app-header">
+            <div class="brand-row">
+                <span class="brand-title" id="app-brand-title">银发护卫 · 守护版</span>
+                <span class="status-indicator-badge">天津南开 (AES-256)</span>
+            </div>
+            
+            <!-- Accessible Switch Controls -->
+            <div class="role-toggle-pill">
+                <button class="toggle-btn role-elderly active" id="btn-role-elder">
+                    👴 老人守护
+                </button>
+                <button class="toggle-btn role-guardian" id="btn-role-guard">
+                    👩‍🦰 远程监护
+                </button>
+            </div>
+        </div>
+
+        <!-- ELDERLY MODE SCREEN VIEWPORT -->
+        <div class="elder-screen-content" id="screen-elderly">
+            
+            <!-- Tab 1: Home View -->
+            <div class="elder-view-pane" id="pane-elder-home" style="display: flex; flex-direction: column; gap: 0.85rem; width:100%;">
+                
+                <!-- iOS Style Weather Widget -->
+                <div class="senior-weather-box">
+                    <div>⛅ 天津市南开区 | 今日多云</div>
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.25rem;">
+                        <span style="font-size: 1.85rem; font-weight: 800; font-family: var(--font-heading);">21℃</span>
+                        <span style="font-size: 0.75rem; opacity: 0.9;">空气质量: 36 (优) | 宜慢步理疗</span>
+                    </div>
+                </div>
+                
+                <div class="senior-user-card">
+                    <div class="senior-avatar-circle">👴</div>
+                    <div class="senior-welcome-info">
+                        <h3>王大爷 (82岁)</h3>
+                        <p>长女王小姐守护中，双端长连线已安全挂钩</p>
+                    </div>
+                </div>
+                
+                <div class="senior-sos-box">
+                    <div class="senior-sos-title">🚨 一键安全急救 (SOS) 🚨</div>
+                    <div class="senior-sos-pulse-ring">
+                        <div class="senior-sos-wave"></div>
+                        <button class="senior-sos-btn" id="elder-sos-btn">SOS</button>
+                    </div>
+                    <div class="senior-sos-tip">双击此键瞬间呼叫儿女及鼓楼驿站紧急专班</div>
+                </div>
+                
+                <div class="senior-voice-card">
+                    <div class="senior-voice-title">🗣️ AI 智能方言口述助手</div>
+                    <div class="senior-voice-presets">
+                        <button class="senior-voice-btn" data-elder-voice="sc">四川话 ("脑壳有点晕")</button>
+                        <button class="senior-voice-btn" data-elder-voice="gd">粤语 ("送个晏昼饭")</button>
+                        <button class="senior-voice-btn" data-elder-voice="mn">闽南语 ("腰酸痛想按摩")</button>
+                    </div>
+                    <div class="senior-voice-bubble">
+                        <div class="senior-wave-animation" id="elder-voice-wave">
+                            <div class="senior-wave-bar"></div>
+                            <div class="senior-wave-bar"></div>
+                            <div class="senior-wave-bar"></div>
+                            <div class="senior-wave-bar"></div>
+                            <div class="senior-wave-bar"></div>
+                        </div>
+                        <div class="senior-transcript-text" id="elder-voice-transcript">
+                            点击上方卡片说话，AI大模型将自动提取语音意图，协助您的儿女代为付款及排单...
+                        </div>
+                        <div class="senior-response-text" id="elder-voice-response">
+                            AI 助老助手正在分析中...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Online Family Doctor Consult Panel -->
+                <div class="consultation-chat-panel" id="doctor-consult-panel" style="margin-top: 0.5rem;">
+                    <div class="consult-doctor-banner">
+                        <span style="font-size: 1.5rem;">🩺</span>
+                        <div style="text-align: left; flex: 1;">
+                            <h4 style="font-size: 0.8rem; font-weight: 800; color: var(--elder-text-main);">天津鼓楼驿站·家庭保健医</h4>
+                            <p style="font-size: 0.65rem; color: var(--color-blue); font-weight: bold;">在线诊疗中心 (实时接诊中)</p>
+                        </div>
+                    </div>
+                    <div class="chat-bubble-feed" id="doctor-chat-feed">
+                        <div class="chat-bubble doctor">您好！我是您的家庭保健医生李大夫。天津医大附院康复专科背景。您今天有什么身体不适或者慢病管理问题吗？可以直接在下方输入，如“胸闷”、“腰疼”或“测血压”。</div>
+                    </div>
+                    <div class="chat-input-bar">
+                        <input type="text" class="chat-input-box" id="doctor-chat-input" placeholder="输入症状，如胸闷、头晕、腰疼...">
+                        <button class="chat-send-btn" id="doctor-chat-send-btn">咨询</button>
+                    </div>
+                </div>
+
+                <!-- Elderly Targeted Ad Banner -->
+                <div class="elderly-ad-banner" id="elderly-ad-home" data-ad-id="ad_physio">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; text-align: left;">
+                        <span style="font-size: 1.5rem;">🏥</span>
+                        <div>
+                            <h4 style="font-size: 0.8rem; font-weight: 800; color: #115e59;">天津中医药大学鼓楼特约理疗节</h4>
+                            <p style="font-size: 0.65rem; color: #0f766e;">老风湿、老寒腿脉冲随身理疗盒，现到店免费体验！</p>
+                        </div>
+                    </div>
+                    <span class="ad-icon-label">广告</span>
+                </div>
+            </div>
+            
+            <!-- Tab 2: Life Services Booking View -->
+            <div class="elder-view-pane" id="pane-elder-services" style="display: none; flex-direction: column; gap: 0.85rem; width:100%;">
+                <div class="senior-welcome-info">
+                    <h3 style="font-size: 1.15rem; font-weight: 800;">助老生活服务预约</h3>
+                    <p style="font-size: 0.8rem; color: var(--elder-text-sub);">精选天津南开鼓楼驿站资质认证保洁与送餐服务</p>
+                </div>
+                
+                <div class="senior-services-grid">
+                    <div class="senior-service-card" data-book-service="home_clean">
+                        <div class="senior-service-icon">🧹</div>
+                        <div class="senior-service-name">全屋保洁</div>
+                        <div class="senior-service-desc">厨房浴室防滑卫生整理</div>
+                    </div>
+                    <div class="senior-service-card" data-book-service="food_deliver">
+                        <div class="senior-service-icon">🍱</div>
+                        <div class="senior-service-name">爱心送餐</div>
+                        <div class="senior-service-desc">慢病低钠膳食上门</div>
+                    </div>
+                    <div class="senior-service-card" data-book-service="buy_replace">
+                        <div class="senior-service-icon">🛒</div>
+                        <div class="senior-service-name">代购代办</div>
+                        <div class="senior-service-desc">慢病用药开药代取代缴</div>
+                    </div>
+                    <div class="senior-service-card" data-book-service="repair_home">
+                        <div class="senior-service-icon">🔧</div>
+                        <div class="senior-service-name">水电改装</div>
+                        <div class="senior-service-desc">浴室扶手防滑垫装配</div>
+                    </div>
+                </div>
+                
+                <div class="senior-welcome-info" style="margin-top: 0.5rem;">
+                    <h3 style="font-size: 1rem; font-weight: 800;">预约记录与订单进行状态</h3>
+                </div>
+                <div class="senior-records-list" id="elder-records-container">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <div class="provider-resources-title">
+                    <span>🛡️ 鼓楼驿站签约认证服务商</span>
+                    <span style="font-size: 0.65rem; color: var(--color-blue); font-weight: bold;">已核验 142 人</span>
+                </div>
+                <div class="provider-row-list" id="elder-providers-container" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <!-- Will be populated dynamically via JS to ensure XSS compliance -->
+                </div>
+
+                <!-- Elderly Targeted Ad Banner -->
+                <div class="elderly-ad-banner" id="elderly-ad-services" data-ad-id="ad_diet">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; text-align: left;">
+                        <span style="font-size: 1.5rem;">🍱</span>
+                        <div>
+                            <h4 style="font-size: 0.8rem; font-weight: 800; color: #115e59;">天津南开区适老营养膳食特惠</h4>
+                            <p style="font-size: 0.65rem; color: #0f766e;">签约鼓楼饭堂，首周低糖低盐长寿午餐享8折优惠！</p>
+                        </div>
+                    </div>
+                    <span class="ad-icon-label">广告</span>
+                </div>
+            </div>
+            
+            <!-- Tab 3: Community Station View -->
+            <div class="elder-view-pane" id="pane-elder-station" style="display: none; flex-direction: column; gap: 0.85rem; width:100%;">
+                <div class="senior-welcome-info">
+                    <h3 style="font-size: 1.15rem; font-weight: 800;">线下康养驿站自提</h3>
+                    <p style="font-size: 0.8rem; color: var(--elder-text-sub);">线上预留产品，儿女确认支付后自动生成取货核销二维码</p>
+                </div>
+                
+                <div class="senior-user-card" style="background: #f0f9ff; border-color: #e0f2fe;">
+                    <span style="font-size: 1.75rem;">📍</span>
+                    <div class="senior-welcome-info">
+                        <h3 style="color: #0369a1; font-weight: 800;">天津鼓楼街道智慧驿站</h3>
+                        <p style="color: #0284c7; font-size: 0.725rem;">天津市南开区鼓楼商业街8号 | 电话: 022-2735***</p>
+                    </div>
+                </div>
+                
+                <div class="senior-products-list">
+                    <div class="senior-product-item">
+                        <div class="senior-product-title">智能重力防跌倒充气马甲</div>
+                        <div class="senior-product-desc">老人失重倾斜瞬间0.08秒气囊爆发保护髋骨，强效防摔避震</div>
+                        <div class="product-stock-line">
+                            <span>🔥 仅剩 5 件</span>
+                            <span class="stock-progress-bg"><span class="stock-progress-fill"></span></span>
+                            <span style="color: var(--elder-text-sub);">| 已预约 142 人</span>
+                        </div>
+                        <div class="senior-product-footer">
+                            <div class="senior-product-price"><span>¥</span>880.00</div>
+                            <div style="display: flex; gap: 0.35rem;">
+                                <button class="senior-product-btn add-to-cart-btn" data-prod-name="智能重力防摔马甲" data-prod-price="880.00" style="background: var(--color-cyan);">🛒 加购物车</button>
+                                <button class="senior-product-btn" data-reserve-prod="智能重力防摔马甲" data-price="880.00">直接预约</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="senior-product-item">
+                        <div class="senior-product-title">智能红外脉冲随身理疗烤灯</div>
+                        <div class="senior-product-desc">多档温控脉冲关节热疗烤灯，改善老风湿、老寒腿及积液疼痛</div>
+                        <div class="product-stock-line">
+                            <span style="color: #0284c7;">⚡ 余量充足 (32件)</span>
+                            <span class="stock-progress-bg"><span class="stock-progress-fill" style="width: 75%; background: #0284c7;"></span></span>
+                            <span style="color: var(--elder-text-sub);">| 已预约 218 人</span>
+                        </div>
+                        <div class="senior-product-footer">
+                            <div class="senior-product-price"><span>¥</span>240.00</div>
+                            <div style="display: flex; gap: 0.35rem;">
+                                <button class="senior-product-btn add-to-cart-btn" data-prod-name="智能红外随身理疗烤灯" data-prod-price="240.00" style="background: var(--color-cyan);">🛒 加购物车</button>
+                                <button class="senior-product-btn" data-reserve-prod="智能红外随身理疗盒" data-price="240.00">直接预约</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="senior-product-item">
+                        <div class="senior-product-title">智能语音防漏药智能药盒</div>
+                        <div class="senior-product-desc">通过WiFi/蓝牙连接。多格分区，吃药时间自动蜂鸣并进行方言语音播报，漏服自动报警给儿女微信</div>
+                        <div class="product-stock-line">
+                            <span style="color: #0284c7;">⚡ 余量充足 (15件)</span>
+                            <span class="stock-progress-bg"><span class="stock-progress-fill" style="width: 50%; background: #0284c7;"></span></span>
+                            <span style="color: var(--elder-text-sub);">| 已预约 89 人</span>
+                        </div>
+                        <div class="senior-product-footer">
+                            <div class="senior-product-price"><span>¥</span>150.00</div>
+                            <div style="display: flex; gap: 0.35rem;">
+                                <button class="senior-product-btn add-to-cart-btn" data-prod-name="智能语音防漏药盒" data-prod-price="150.00" style="background: var(--color-cyan);">🛒 加购物车</button>
+                                <button class="senior-product-btn" data-reserve-prod="智能语音防漏药盒" data-price="150.00">直接预约</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elderly Targeted Ad Banner -->
+                <div class="elderly-ad-banner" id="elderly-ad-station" data-ad-id="ad_mobility">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; text-align: left;">
+                        <span style="font-size: 1.5rem;">🦽</span>
+                        <div>
+                            <h4 style="font-size: 0.8rem; font-weight: 800; color: #115e59;">天津鼓楼驿站适老轮椅/拐杖租售节</h4>
+                            <p style="font-size: 0.65rem; color: #0f766e;">社区签约合作商，高标碳纤维超轻拐杖免费领用试戴！</p>
+                        </div>
+                    </div>
+                    <span class="ad-icon-label">广告</span>
+                </div>
+            </div>
+            
+            <!-- Tab 4: Anti-Fraud quiz view -->
+            <!-- Tab 4: Anti-Fraud quiz view & Social Communities -->
+            <div class="elder-view-pane" id="pane-elder-antifraud" style="display: none; flex-direction: column; gap: 0.85rem; width:100%;">
+                
+                <div class="social-quiz-toggle-bar">
+                    <button class="social-toggle-btn active" id="btn-toggle-quiz">🙋 银发防诈大讲堂</button>
+                    <button class="social-toggle-btn" id="btn-toggle-social">👥 鼓楼老友兴趣群</button>
+                </div>
+
+                <!-- Section A: Quiz -->
+                <div id="social-quiz-section" style="display: flex; flex-direction: column; gap: 0.85rem; width: 100%;">
+                    <div class="senior-welcome-info">
+                        <h3 style="font-size: 1.15rem; font-weight: 800;">防网络电信诈骗科普讲堂</h3>
+                        <p style="font-size: 0.8rem; color: var(--elder-text-sub);">内置天津南开分局典型案例与防诈骗特征识别模块</p>
+                    </div>
+                    
+                    <div class="senior-user-card" style="background: #fffbeb; border-color: #fde68a;">
+                        <span style="font-size: 1.75rem;">💡</span>
+                        <div class="senior-welcome-info">
+                            <h3 style="color: #92400e; font-weight: 800;">【南开警方提示】防医保账户涉案骗局</h3>
+                            <p style="color: #78350f; font-size: 0.725rem;">凡是电话说您的医保账户套现违规、涉嫌骗保，要求将全部资金转移的，一律为虚假诈骗，请立即挂断！</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quiz card -->
+                    <div class="senior-quiz-card">
+                        <div class="senior-quiz-title">🙋【防诈测试】如果接到电话自称是“天津社保局”要求配合秘密办案，需将所有银行卡余额汇入所谓的“医保监管安全账户”审查，您应该？</div>
+                        <div class="senior-quiz-options">
+                            <button class="senior-quiz-btn" data-ans="wrong">A. 相信对方身份，立刻带上银行卡去鼓楼大马路银行ATM机全部汇出</button>
+                            <button class="quiz-option-btn senior-quiz-btn" data-ans="correct">B. 立刻挂断电话，前往社区居委会或拨打全国社保客服热线12333核实</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section B: Social Community -->
+                <div id="social-community-section" style="display: none; flex-direction: column; gap: 0.85rem; width: 100%;">
+                    <!-- Voice/Video call shortcut block -->
+                    <div class="calling-action-block">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 1.5rem;">📞</span>
+                            <div style="text-align: left;">
+                                <h4 style="font-size: 0.8rem; font-weight: 800; color: var(--color-blue-dark);">家庭音视频双向通话</h4>
+                                <p style="font-size: 0.65rem; color: var(--elder-text-sub);">点击呼叫儿女，体验高带宽音视频安全连线</p>
+                            </div>
+                        </div>
+                        <button class="calling-action-btn" id="btn-trigger-peer-call">发起通话</button>
+                    </div>
+
+                    <div class="senior-welcome-info" style="margin-top: 0.25rem;">
+                        <h3 style="font-size: 1rem; font-weight: 800;">天津鼓楼老街文化联谊群</h3>
+                        <p style="font-size: 0.725rem; color: var(--elder-text-sub);">和本社区的同龄老友棋盘切磋、太极养生</p>
+                    </div>
+
+                    <div class="elder-social-groups" id="elder-social-groups-container">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- Elderly Targeted Ad Banner -->
+                <div class="elderly-ad-banner" id="elderly-ad-antifraud" data-ad-id="ad_insurance">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; text-align: left;">
+                        <span style="font-size: 1.5rem;">🛡️</span>
+                        <div>
+                            <h4 style="font-size: 0.8rem; font-weight: 800; color: #115e59;">人保财险天津分公司特惠适老险</h4>
+                            <p style="font-size: 0.65rem; color: #0f766e;">专门定制防骨折防意外险，岁数大也能投，每天仅几毛钱！</p>
+                        </div>
+                    </div>
+                    <span class="ad-icon-label">广告</span>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- ELDERLY BOTTOM TABS NAV -->
+        <nav class="elder-bottom-nav" id="elder-bottom-nav-bar">
+            <button class="elder-tab-btn active" data-elder-tab="home">
+                <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                首页守护
+            </button>
+            <button class="elder-tab-btn" data-elder-tab="services">
+                <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                助老服务
+            </button>
+            <button class="elder-tab-btn" data-elder-tab="station">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                驿站自提
+            </button>
+            <button class="elder-tab-btn" data-elder-tab="antifraud">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg>
+                银发防诈
+            </button>
+        </nav>
+
+        <!-- GUARDIAN MODE SCREEN VIEWPORT -->
+        <div class="guard-screen-content" id="screen-guardian" style="display: none;">
+            
+            <!-- Pane 1: Telemetry Biometrics and GPS Tianjin Map -->
+            <div class="guard-view-pane" id="pane-guard-telemetry" style="display: flex; flex-direction: column; gap: 0.85rem; width:100%;">
+                <div class="guard-parent-banner">
+                    <span style="font-size: 1.25rem;">👴</span>
+                    <div>
+                        <h4 style="color: #ffffff; font-size: 0.825rem; font-weight: 700;">被守护人：王大爷 (82岁)</h4>
+                        <p style="color: var(--guard-text-sub); font-size: 0.65rem;">位置状态：天津市南开区鼓楼驿站自提中</p>
+                    </div>
+                </div>
+                
+                <!-- Telemetry box 1: Heart rate -->
+                <div class="guard-telemetry-box">
+                    <div class="guard-telemetry-top">
+                        <span class="guard-telemetry-title">💓 实时手环心率流式遥测</span>
+                        <div class="guard-telemetry-vals">
+                            <span class="guard-telemetry-num" id="guard-heart-val">78</span>
+                            <span class="guard-telemetry-unit">bpm</span>
+                        </div>
+                    </div>
+                    <canvas id="canvas-heart-stream" class="canvas-chart"></canvas>
+                </div>
+                
+                <!-- Telemetry box 2: BP -->
+                <div class="guard-telemetry-box">
+                    <div class="guard-telemetry-top">
+                        <span class="guard-telemetry-title">🩸 血压及脉搏波变异系</span>
+                        <div class="guard-telemetry-vals">
+                            <span class="guard-telemetry-num">128/82</span>
+                            <span class="guard-telemetry-unit">mmHg</span>
+                        </div>
+                    </div>
+                    <canvas id="canvas-bp-stream" class="canvas-chart"></canvas>
+                </div>
+                
+                <!-- Tianjin localized Map tracker -->
+                <div class="guard-map-box">
+                    <div class="guard-telemetry-title">🗺️ 天津市南开鼓楼街道电子围栏高精定位</div>
+                    <div class="guard-map-viewport">
+                        <svg class="simulated-map-svg" viewBox="0 0 350 150">
+                            <line x1="0" y1="37" x2="350" y2="37" stroke="rgba(255,255,255,0.01)" stroke-width="1"/>
+                            <line x1="0" y1="75" x2="350" y2="75" stroke="rgba(255,255,255,0.01)" stroke-width="1"/>
+                            <line x1="0" y1="112" x2="350" y2="112" stroke="rgba(255,255,255,0.01)" stroke-width="1"/>
+                            <line x1="87" y1="0" x2="87" y2="150" stroke="rgba(255,255,255,0.01)" stroke-width="1"/>
+                            <line x1="175" y1="0" x2="175" y2="150" stroke="rgba(255,255,255,0.01)" stroke-width="1"/>
+                            <line x1="262" y1="0" x2="262" y2="150" stroke="rgba(255,255,255,0.01)" stroke-width="1"/>
+                            
+                            <!-- Nankai boundary geofence (Tianjin Drum tower center) -->
+                            <circle cx="175" cy="75" r="55" fill="rgba(13, 148, 136, 0.04)" stroke="var(--color-teal)" stroke-width="1" stroke-dasharray="3 3"/>
+                            <text x="180" y="32" fill="var(--color-teal)" font-size="6" font-weight="600">鼓楼街道电子围栏 (半径500m)</text>
+                            
+                            <!-- Landmarks -->
+                            <circle cx="120" cy="50" r="3.5" fill="#0284c7" />
+                            <text x="110" y="42" fill="#9ca3af" font-size="5">南开第一社区(住宅)</text>
+                            
+                            <circle cx="210" cy="95" r="3.5" fill="#0284c7" />
+                            <text x="185" y="105" fill="#9ca3af" font-size="5">天津古文化街商业区</text>
+                            
+                            <polygon points="230,55 234,63 226,63" fill="var(--color-marigold)" />
+                            <text x="210" y="50" fill="#9ca3af" font-size="5">鼓楼街道康养驿站</text>
+                            
+                            <!-- Parent Coordinate marker node -->
+                            <g id="guard-parent-map-marker">
+                                <circle cx="175" cy="75" r="8" fill="#e11d48" opacity="0.35">
+                                    <animate attributeName="r" values="8;16;8" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="175" cy="75" r="4.5" fill="#e11d48" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="guard-location-footer">
+                        <span>古文化街商业城智慧驿站</span>
+                        <span style="font-family: monospace; color: var(--guard-accent);">GPS: 117.198354, 39.125642</span>
+                    </div>
+                </div>
+
+                <!-- Anonymized Health Report Generator -->
+                <button class="guard-btn-action guard-btn-approve" id="btn-generate-report" style="width: 100%; padding: 0.55rem; font-size: 0.8rem; margin-top: 0.25rem; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+                    📊 生成被监护人周度脱敏健康评估报告
+                </button>
+                <div id="weekly-report-container" style="display: none; margin-top: 0.25rem;">
+                    <!-- Dynamically populated via JS -->
+                </div>
+            </div>
+            
+            <!-- Pane 2: AI Safety warning system -->
+            <div class="guard-view-pane" id="pane-guard-aidetect" style="display: none; flex-direction: column; gap: 0.85rem; width:100%;">
+                
+                <!-- CCTV CCTV terminal overlay -->
+                <div class="guard-fall-camera-panel">
+                    <div class="cctv-header-overlay"><span class="cctv-dot"></span> REC ● 1080P | 鼓楼驿站大厅Cam03</div>
+                    <canvas id="canvas-ai-camera" class="guard-fall-canvas"></canvas>
+                    <div class="cctv-footer-overlay">FPS: 30 | NANKAI-NET-SECURITY</div>
+                    <span style="font-size: 0.65rem; color: var(--color-rose); font-weight: 700; display: flex; align-items: center; gap: 3px; margin-top: 0.15rem; align-self: flex-start;">
+                        <span style="width:5px; height:5px; background:#e11d48; border-radius:50%; animation: livePulse 1s infinite alternate;"></span>
+                        AI 边缘机器视觉姿态骨骼解算中
+                    </span>
+                    <button class="guard-btn-action guard-btn-approve" id="btn-simulate-fall" style="margin-top: 0.5rem; width: 100%; font-size: 0.8rem; padding: 0.45rem;">🚨 模拟跌倒预警触发</button>
+                </div>
+                
+                <div class="guard-telemetry-title">🔔 大数据健康危象与算法分析警告日志</div>
+                <div class="guard-logs-feed" id="guard-alerts-container">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+            
+            <!-- Pane 3: Remote Authorizations approvals checkouts -->
+            <div class="guard-view-pane" id="pane-guard-approvals" style="display: none; flex-direction: column; gap: 0.85rem; width:100%;">
+                <div class="guard-telemetry-title">📋 待子女代付及安全清结算授权单</div>
+                <div class="guard-approvals-feed" id="guard-approvals-container">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+            
+            <!-- Pane 4: Ledger transaction commission split splits & Operation Center -->
+            <div class="guard-view-pane" id="pane-guard-ledger" style="display: none; flex-direction: column; gap: 0.85rem; width:100%;">
+                <div class="guard-telemetry-title">💎 清结算分成流水 (T+1 协议自动结账)</div>
+                <div class="guard-ledger-list" id="ledger-rows-container">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- Elderly Ad Campaign Statistics (Commercial center) -->
+                <div class="guard-telemetry-title" style="margin-top: 0.75rem;">📈 银发护卫联盟适老广告计划投产监测</div>
+                <div class="ad-stats-card">
+                    <div style="font-weight: 800; color: #ffffff; font-size: 0.775rem;">【定向助老康养大屏广告组】</div>
+                    <div class="ad-stats-row"><span>总展示曝光次数 (Impressions):</span><span id="ad-impressions-val" style="color: #ffffff; font-weight: bold;">1,245 次</span></div>
+                    <div class="ad-stats-row"><span>点击转化次数 (Clicks):</span><span id="ad-clicks-val" style="color: var(--guard-accent); font-weight: bold;">84 次</span></div>
+                    <div class="ad-stats-row"><span>广告点击率 (CTR):</span><span id="ad-ctr-val" style="color: #34d399; font-weight: bold;">6.75%</span></div>
+                    <div style="margin-top: 0.35rem; font-size: 0.6rem; color: var(--guard-text-sub); border-top: 1px solid var(--guard-border); padding-top: 0.25rem;">
+                        🎯 定向推荐标签: <span style="background: rgba(56, 189, 248, 0.1); color: var(--guard-accent); padding: 1px 4px; border-radius: 4px;">南开高龄</span> <span style="background: rgba(56, 189, 248, 0.1); color: var(--guard-accent); padding: 1px 4px; border-radius: 4px;">慢病理疗</span>
+                    </div>
+                </div>
+                
+                <!-- Third-party Partner Connection Endpoints -->
+                <div class="partner-pane-header" style="margin-top: 0.75rem;">
+                    <span class="guard-telemetry-title">🔌 天津老龄健康生态合作伙伴API对接</span>
+                    <button class="guard-btn-action guard-btn-approve" id="btn-partner-api-sync" style="font-size: 0.6rem; padding: 0.15rem 0.45rem;">全部同步</button>
+                </div>
+                <div class="provider-row-list" style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 0.5rem;" id="partner-api-list">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- GUARDIAN BOTTOM TABS NAV -->
+        <nav class="guard-bottom-nav" id="guard-bottom-nav-bar" style="display: none;">
+            <button class="guard-tab-btn active" data-guard-tab="telemetry">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                实时监控
+            </button>
+            <button class="guard-tab-btn" data-guard-tab="aidetect">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z"/></svg>
+                AI预警
+            </button>
+            <button class="guard-tab-btn" data-guard-tab="approvals">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                审批代付
+                <span class="badge-count" id="guard-pending-badge" style="display: none;">1</span>
+            </button>
+            <button class="guard-tab-btn" data-guard-tab="ledger">
+                <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2-.9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5 0.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                分成账单
+            </button>
+        </nav>
+
+        <!-- Floating Shopping Cart Icon (visible in Station tab) -->
+        <div class="floating-cart-anchor" id="floating-cart" style="display: none;">
+            <span>🛒</span>
+            <span class="floating-cart-badge" id="cart-badge-count">0</span>
+        </div>
+
+        <!-- Shopping Cart Drawer Bottom Sheet -->
+        <div class="cart-drawer-sheet" id="cart-drawer">
+            <div class="cart-drawer-header">
+                <span style="font-weight: 800; font-size: 0.95rem; color: var(--elder-text-main);">🛒 购物车中的项目</span>
+                <span id="close-cart-btn" style="font-size: 1.2rem; cursor: pointer; color: var(--elder-text-sub); font-weight: bold;">✕</span>
+            </div>
+            <div class="cart-items-feed" id="cart-items-container">
+                <!-- Populated dynamically via JS -->
+            </div>
+            <div class="cart-drawer-footer">
+                <!-- Distribution Select -->
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem;">
+                    <span style="color: var(--elder-text-sub); font-weight: 700;">配送方式：</span>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 2px; font-weight: 800; color: var(--color-blue);">
+                            <input type="radio" name="cart-delivery" value="station" checked> 驿站自提
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 2px; font-weight: 800; color: var(--elder-text-sub);">
+                            <input type="radio" name="cart-delivery" value="home"> 送货上门
+                        </label>
+                    </div>
+                </div>
+                <div class="cart-totals">
+                    <span>合计金额:</span>
+                    <span id="cart-total-price" style="color: #e11d48;">¥0.00</span>
+                </div>
+                <button class="senior-product-btn" id="cart-checkout-btn" style="width: 100%; padding: 0.6rem; font-size: 0.9rem; margin-top: 0.25rem;">去结算 (发送给儿女审批代付)</button>
+            </div>
+        </div>
+
+        <!-- Simulated Video/Voice Call Screen Overlay -->
+        <div class="mobile-video-call-overlay" id="video-call-overlay" style="display: none;">
+            <div class="calling-avatar-box">
+                <div class="calling-avatar-pulse" id="call-avatar-label">👩‍🦰</div>
+                <h3 style="font-size: 1.25rem; font-weight: 900; font-family: var(--font-heading);" id="call-user-name">长女王小姐</h3>
+                <p style="font-size: 0.8rem; opacity: 0.8;" id="call-status-label">正在呼叫中...</p>
+            </div>
+            <div class="call-timer-box" id="call-timer-label" style="display: none;">00:00</div>
+            <div class="call-control-row">
+                <button class="call-mute-btn" id="call-mute-toggle" title="静音">🎤</button>
+                <button class="call-disconnect-btn" id="call-hangup-btn" title="挂断">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="white" style="transform: rotate(135deg);"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2-.9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8z"/></svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script imports -->
+    <script src="app.js"></script>
+</body>
+</html>

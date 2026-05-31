@@ -1,0 +1,1676 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+    
+    /* Unified Professional Blue Theme Accent Variables */
+    --color-blue: #0284c7;       /* Medical / Protective Blue */
+    --color-blue-dark: #0369a1;
+    --color-blue-glow: rgba(2, 132, 199, 0.12);
+    
+    --color-cyan: #06b6d4;       /* Safe / Cyber Teal */
+    --color-cyan-glow: rgba(6, 182, 212, 0.12);
+    
+    --color-sky-light: #f0f9ff;  /* Sky Blue tint background */
+    --color-sky-border: #e0f2fe;
+    
+    --color-rose: #e11d48;       /* Hazard Alert */
+    --color-rose-glow: rgba(225, 29, 72, 0.12);
+    
+    /* Elderly Accessible Blue Palette */
+    --elder-bg: #f8fafc;
+    --elder-card: #ffffff;
+    --elder-text-main: #0f172a;
+    --elder-text-sub: #475569;
+    --elder-border: #e2e8f0;
+    --elder-accent: var(--color-blue);
+    --elder-accent-light: var(--color-sky-light);
+    
+    /* Guardian Console Blue Palette */
+    --guard-bg: #090e1a;
+    --guard-card: #111827;
+    --guard-text-main: #f9fafb;
+    --guard-text-sub: #9ca3af;
+    --guard-border: #1f2937;
+    --guard-accent: #38bdf8;
+    --guard-accent-glow: rgba(56, 189, 248, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff; /* Page background surrounding the phone is solid white */
+    color: #0f172a;
+    font-family: var(--font-primary);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   1. PREMIUM SILVER TITANIUM PHONE FRAME VIEWPORT
+   ========================================================================== */
+.phone-viewport-container {
+    width: 390px;
+    height: 820px;
+    background: #000000;
+    border-radius: 46px;
+    border: 8px solid #94a3b8; /* Premium silver titanium smartphone bezel */
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.12),
+                0 0 0 1px rgba(15, 23, 42, 0.05),
+                inset 0 0 10px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden; /* Encapsulate all elements exactly inside phone screen */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Simulated notch status bar */
+.phone-system-bar {
+    height: 38px;
+    background: #ffffff;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: #0f172a;
+    z-index: 90;
+    transition: all 0.3s ease;
+}
+
+.theme-child .phone-system-bar {
+    background: var(--guard-bg);
+    color: var(--guard-text-main);
+}
+
+.phone-notch-island {
+    width: 110px;
+    height: 18px;
+    background: #94a3b8;
+    border-radius: 0 0 12px 12px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+/* iOS Home Gesture bar */
+.phone-home-indicator-bar {
+    width: 110px;
+    height: 4px;
+    background: #cbd5e1;
+    border-radius: 9999px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.theme-child .phone-home-indicator-bar {
+    background: #475569;
+}
+
+/* APP HEADER TOGGLE BAR */
+.mobile-app-header {
+    background: #ffffff;
+    border-bottom: 2px solid var(--elder-border);
+    padding: 0.65rem 0.85rem;
+    z-index: 80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.theme-child .mobile-app-header {
+    background: var(--guard-bg);
+    border-bottom: 1px solid var(--guard-border);
+}
+
+.brand-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--elder-text-main);
+}
+
+.theme-child .brand-title {
+    color: var(--guard-text-main);
+}
+
+.status-indicator-badge {
+    padding: 0.15rem 0.45rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: 6px;
+    background: rgba(2, 132, 199, 0.08);
+    color: var(--color-blue);
+}
+
+.theme-child .status-indicator-badge {
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--guard-accent);
+}
+
+.role-toggle-pill {
+    display: flex;
+    background: #e2e8f0;
+    border-radius: 12px;
+    padding: 0.2rem;
+    width: 100%;
+    border: 1px solid var(--elder-border);
+}
+
+.theme-child .role-toggle-pill {
+    background: rgba(31, 41, 55, 0.6);
+    border: 1px solid var(--guard-border);
+}
+
+.toggle-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--elder-text-sub);
+    cursor: pointer;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-child .toggle-btn {
+    color: var(--guard-text-sub);
+}
+
+.toggle-btn.active {
+    color: white;
+}
+
+.toggle-btn.active.role-elderly {
+    background: var(--color-blue);
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+}
+
+.toggle-btn.active.role-guardian {
+    background: var(--color-cyan);
+    box-shadow: 0 2px 8px rgba(6, 182, 212, 0.25);
+}
+
+/* ==========================================================================
+   2. ELDERLY PORTAL (老年端) MOBILE LAYOUT STYLES
+   ========================================================================== */
+.elder-screen-content {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--elder-bg);
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-bottom: 2.2rem; /* offset home capsule indicator */
+}
+
+/* Bottom mobile navigation menu bar */
+.elder-bottom-nav {
+    height: 65px;
+    background: #ffffff;
+    border-top: 2px solid var(--elder-border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    z-index: 80;
+    padding-bottom: 6px;
+}
+
+.elder-tab-btn {
+    background: transparent;
+    border: none;
+    border-top: 3px solid transparent;
+    padding: 0.45rem 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--elder-text-sub);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    transition: all 0.15s ease;
+}
+
+.elder-tab-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.elder-tab-btn:hover {
+    color: var(--color-blue);
+}
+
+.elder-tab-btn.active {
+    color: var(--color-blue);
+    background: var(--color-sky-light);
+    border-top-color: var(--color-blue);
+}
+
+/* iOS-Style weather widget */
+.senior-weather-box {
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    border: none;
+    border-radius: 18px;
+    padding: 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.senior-weather-box span {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: #ffffff;
+}
+
+.senior-user-card {
+    background: #ffffff;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 18px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+}
+
+.senior-avatar-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-sky-light);
+    border: 2px solid var(--color-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.senior-welcome-info h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--elder-text-main);
+}
+
+.senior-welcome-info p {
+    font-size: 0.75rem;
+    color: var(--elder-text-sub);
+    font-weight: 600;
+}
+
+/* SOS Shield button pulse animation */
+.senior-sos-box {
+    background: #f0f9ff;
+    border: 2.5px dashed #bae6fd;
+    border-radius: 22px;
+    padding: 1.25rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.senior-sos-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--color-blue);
+    margin-bottom: 0.4rem;
+}
+
+.senior-sos-pulse-ring {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.senior-sos-wave {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 132, 199, 0.12);
+    border-radius: 50%;
+    animation: sosPulse 1.8s infinite;
+}
+
+.senior-sos-btn {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    border: 4px solid #ffffff;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease;
+}
+
+.senior-sos-btn:active {
+    transform: scale(0.93);
+}
+
+.senior-sos-tip {
+    font-size: 0.75rem;
+    color: var(--color-blue-dark);
+    font-weight: 700;
+    margin-top: 0.65rem;
+}
+
+/* Siri Voice waveform visualizer waves */
+.senior-voice-card {
+    background: #ffffff;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 18px;
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.senior-voice-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--elder-text-main);
+}
+
+.senior-voice-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.senior-voice-btn {
+    background: var(--color-sky-light);
+    border: 1.5px solid var(--color-sky-border);
+    color: var(--color-blue);
+    padding: 0.45rem 0.65rem;
+    border-radius: 10px;
+    font-size: 0.775rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.senior-voice-bubble {
+    background: #f8fafc;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 14px;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.85rem;
+    min-height: 80px;
+    position: relative;
+}
+
+/* Siri wave-bars keyframe animations */
+.senior-wave-animation {
+    display: none;
+    align-items: center;
+    gap: 3.5px;
+    height: 20px;
+    position: absolute;
+    top: 0.65rem;
+    right: 0.85rem;
+}
+
+.senior-wave-bar {
+    width: 2.5px;
+    background: var(--color-blue);
+    border-radius: 2px;
+    animation: siriVoiceWave 0.8s ease-in-out infinite alternate;
+}
+
+.senior-wave-bar:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+.senior-wave-bar:nth-child(2) { height: 18px; animation-delay: 0.3s; }
+.senior-wave-bar:nth-child(3) { height: 12px; animation-delay: 0.5s; }
+.senior-wave-bar:nth-child(4) { height: 20px; animation-delay: 0.2s; }
+.senior-wave-bar:nth-child(5) { height: 8px; animation-delay: 0.4s; }
+
+@keyframes siriVoiceWave {
+    0% { transform: scaleY(0.3); }
+    100% { transform: scaleY(1); }
+}
+
+.senior-transcript-text {
+    color: var(--elder-text-main);
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.senior-response-text {
+    margin-top: 0.5rem;
+    border-top: 1.5px dashed var(--elder-border);
+    padding-top: 0.4rem;
+    color: var(--color-blue-dark);
+    font-weight: 800;
+    line-height: 1.4;
+    display: none;
+}
+
+/* Service bookings grids layout */
+.senior-services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+}
+
+.senior-service-card {
+    background: #ffffff;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 18px;
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.senior-service-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-blue);
+}
+
+.senior-service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--color-sky-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.senior-service-name {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--elder-text-main);
+}
+
+.senior-service-desc {
+    font-size: 0.7rem;
+    color: var(--elder-text-sub);
+    margin-top: 0.15rem;
+}
+
+/* Service provider verification grids */
+.provider-resources-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin: 0.75rem 0 0.35rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.provider-row-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.provider-mini-card {
+    background: #ffffff;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 14px;
+    padding: 0.65rem 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.provider-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.provider-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.provider-info h4 {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--elder-text-main);
+}
+
+.provider-info p {
+    font-size: 0.65rem;
+    color: var(--elder-text-sub);
+}
+
+.provider-badge-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+}
+
+.verified-tag-green {
+    padding: 0.1rem 0.3rem;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 0.55rem;
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+/* E-Commerce product catalog layout */
+.senior-products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.senior-product-item {
+    background: #ffffff;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 18px;
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.senior-product-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--elder-text-main);
+}
+
+.senior-product-desc {
+    font-size: 0.725rem;
+    color: var(--elder-text-sub);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+/* Stock progress bars */
+.product-stock-line {
+    font-size: 0.65rem;
+    color: #e11d48;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stock-progress-bg {
+    width: 80px;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.stock-progress-fill {
+    height: 100%;
+    background: #e11d48;
+    width: 25%; /* 5/20 items left */
+}
+
+.senior-product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.senior-product-price {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #e11d48;
+}
+
+.senior-product-btn {
+    background: var(--color-blue);
+    color: white;
+    border: none;
+    padding: 0.45rem 0.85rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.senior-product-btn:hover {
+    background: var(--color-blue-dark);
+}
+
+/* Interactive Floating Shopping Cart Icon */
+.floating-cart-anchor {
+    position: absolute;
+    bottom: 80px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+    cursor: pointer;
+    z-index: 110;
+    transition: transform 0.2s ease;
+}
+
+.floating-cart-anchor:active {
+    transform: scale(0.9);
+}
+
+.floating-cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #e11d48;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid white;
+}
+
+/* Slides bottom sheets for Shopping Cart drawer */
+.cart-drawer-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border-top: 3px solid var(--elder-border);
+    border-radius: 24px 24px 0 0;
+    z-index: 130;
+    padding: 1rem;
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.1);
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer-sheet.open {
+    transform: translateY(0);
+}
+
+.cart-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid var(--elder-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.cart-items-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    padding: 0.25rem 0;
+}
+
+.cart-item-delete {
+    color: #e11d48;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.cart-drawer-footer {
+    border-top: 1.5px dashed var(--elder-border);
+    padding-top: 0.5rem;
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cart-totals {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+/* Mobile Booking records lists */
+.senior-records-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.senior-record-card {
+    background: #ffffff;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 14px;
+    padding: 0.65rem 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.01);
+}
+
+.senior-record-info h4 {
+    font-size: 0.825rem;
+    font-weight: 800;
+    color: var(--elder-text-main);
+}
+
+.senior-record-info p {
+    font-size: 0.7rem;
+    color: var(--elder-text-sub);
+    margin-top: 0.15rem;
+}
+
+.senior-record-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.senior-record-badge.pending { background: #fef3c7; color: #d97706; }
+.senior-record-badge.approved { background: #e0f2fe; color: var(--color-blue); }
+
+/* Anti-fraud quizzes & Social interest tabs */
+.social-quiz-toggle-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #f1f5f9;
+    border-radius: 10px;
+    padding: 0.15rem;
+    border: 1.5px solid var(--elder-border);
+    margin-bottom: 0.5rem;
+}
+
+.social-toggle-btn {
+    background: transparent;
+    border: none;
+    padding: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--elder-text-sub);
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+}
+
+.social-toggle-btn.active {
+    background: white;
+    color: var(--color-blue);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* Elderly interest communities */
+.elder-social-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.interest-group-card {
+    background: #ffffff;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 18px;
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.interest-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.interest-group-title {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--elder-text-main);
+}
+
+.interest-group-stats {
+    font-size: 0.675rem;
+    color: var(--color-blue);
+    font-weight: bold;
+}
+
+.interest-group-desc {
+    font-size: 0.725rem;
+    color: var(--elder-text-sub);
+    line-height: 1.35;
+}
+
+.interest-group-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1.5px solid #f8fafc;
+    padding-top: 0.4rem;
+}
+
+.interest-group-event {
+    font-size: 0.725rem;
+    color: #e11d48;
+    font-weight: 700;
+}
+
+.join-group-btn {
+    background: var(--color-sky-light);
+    border: 1.5px solid var(--color-sky-border);
+    color: var(--color-blue);
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Call actions in social groups */
+.calling-action-block {
+    background: #e0f2fe;
+    border: 1.5px solid #bae6fd;
+    border-radius: 18px;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.calling-action-btn {
+    background: var(--color-blue);
+    color: white;
+    border: none;
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Family doctor medical closed-loop online consultations */
+.consultation-chat-panel {
+    background: #ffffff;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 18px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+}
+
+.consult-doctor-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1.5px solid var(--elder-border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.chat-bubble-feed {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.chat-bubble {
+    max-width: 80%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 14px;
+    font-size: 0.775rem;
+    line-height: 1.4;
+    word-break: break-all;
+}
+
+.chat-bubble.doctor {
+    align-self: flex-start;
+    background: var(--color-sky-light);
+    color: var(--elder-text-main);
+    border-top-left-radius: 2px;
+    border: 1px solid var(--color-sky-border);
+}
+
+.chat-bubble.patient {
+    align-self: flex-end;
+    background: #f1f5f9;
+    color: var(--elder-text-main);
+    border-top-right-radius: 2px;
+    border: 1px solid #e2e8f0;
+}
+
+.chat-input-bar {
+    display: flex;
+    gap: 0.35rem;
+    border-top: 1.5px solid var(--elder-border);
+    padding-top: 0.5rem;
+}
+
+.chat-input-box {
+    flex: 1;
+    border: 1.5px solid var(--elder-border);
+    border-radius: 10px;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8rem;
+    outline: none;
+}
+
+.chat-send-btn {
+    background: var(--color-blue);
+    color: white;
+    border: none;
+    padding: 0.4rem 0.85rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* Simulated Audio/Video Calling Full-Screen Overlay inside viewports */
+.mobile-video-call-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 250;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    color: white;
+    text-align: center;
+}
+
+.call-timer-box {
+    font-family: monospace;
+    font-size: 1.45rem;
+    color: var(--guard-accent);
+    letter-spacing: 2px;
+}
+
+.calling-avatar-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.calling-avatar-pulse {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.1);
+    border: 3px solid var(--guard-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+    animation: scalePulse 1.8s infinite;
+}
+
+.call-disconnect-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #e11d48;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(225, 29, 72, 0.4);
+}
+
+.call-control-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.call-mute-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Precise targeted Elderly Ad Banners */
+.elderly-ad-banner {
+    background: #f0fdfa;
+    border: 1.5px solid #99f6e4;
+    border-radius: 16px;
+    padding: 0.65rem 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    box-shadow: 0 2px 6px rgba(13, 148, 136, 0.03);
+}
+
+.ad-icon-label {
+    background: #14b8a6;
+    color: white;
+    font-size: 0.55rem;
+    font-weight: 800;
+    padding: 0.1rem 0.25rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   3. GUARDIAN PORTAL (儿女监护端) MOBILE LAYOUT STYLES
+   ========================================================================== */
+.guard-screen-content {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--guard-bg);
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-bottom: 2rem;
+}
+
+/* Bottom guardian bottom menu bar */
+.guard-bottom-nav {
+    height: 65px;
+    background: var(--guard-card);
+    border-top: 1px solid var(--guard-border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    z-index: 80;
+    padding-bottom: 6px;
+}
+
+.guard-tab-btn {
+    background: transparent;
+    border: none;
+    border-top: 3px solid transparent;
+    padding: 0.45rem 0.25rem;
+    font-size: 0.775rem;
+    font-weight: 700;
+    color: var(--guard-text-sub);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    transition: all 0.15s ease;
+    position: relative;
+}
+
+.guard-tab-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.guard-tab-btn:hover {
+    color: #ffffff;
+}
+
+.guard-tab-btn.active {
+    color: var(--guard-accent);
+    background: var(--guard-accent-glow);
+    border-top-color: var(--guard-accent);
+}
+
+.guard-parent-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 0.5rem 0.75rem;
+    border-radius: 12px;
+}
+
+/* Biometrics Telemetry boxes */
+.guard-telemetry-box {
+    background: var(--guard-card);
+    border: 1px solid var(--guard-border);
+    border-radius: 16px;
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.guard-telemetry-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guard-telemetry-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--guard-text-sub);
+}
+
+.guard-telemetry-vals {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15rem;
+}
+
+.guard-telemetry-num {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.guard-telemetry-unit {
+    font-size: 0.7rem;
+    color: var(--guard-text-sub);
+}
+
+.canvas-chart {
+    width: 100%;
+    height: 70px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 8px;
+    margin-top: 0.25rem;
+}
+
+/* Vector GPS天津地图 */
+.guard-map-box {
+    background: var(--guard-card);
+    border: 1px solid var(--guard-border);
+    border-radius: 16px;
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.guard-map-viewport {
+    width: 100%;
+    height: 150px;
+    background: #060a12;
+    border-radius: 10px;
+    border: 1px solid var(--guard-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.simulated-map-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.guard-location-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--guard-text-sub);
+}
+
+/* CCTV visual layout with HUD overlays */
+.guard-fall-camera-panel {
+    background: var(--guard-card);
+    border: 1px solid var(--guard-border);
+    border-radius: 16px;
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.guard-fall-canvas {
+    width: 100%;
+    height: 130px;
+    background: #000000;
+    border-radius: 10px;
+    border: 1.5px solid var(--guard-border);
+}
+
+.cctv-header-overlay {
+    position: absolute;
+    top: 2.2rem;
+    left: 1.25rem;
+    font-family: monospace;
+    font-size: 0.625rem;
+    color: #ef4444;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    pointer-events: none;
+}
+
+.cctv-header-overlay span.cctv-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ef4444;
+    animation: livePulse 0.5s infinite alternate;
+}
+
+.cctv-footer-overlay {
+    position: absolute;
+    bottom: 2.3rem;
+    right: 1.25rem;
+    font-family: monospace;
+    font-size: 0.6rem;
+    color: #10b981;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Anonymized Health report generator sheet overlay */
+.report-sheet-card {
+    background: var(--guard-card);
+    border: 1.5px solid var(--guard-border);
+    border-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    animation: slideUp 0.3s ease;
+}
+
+.report-headline {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--guard-accent);
+    border-bottom: 1px solid var(--guard-border);
+    padding-bottom: 0.4rem;
+}
+
+.report-metric-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--guard-text-sub);
+}
+
+.report-metric-row span.metric-val {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+/* Operator Ecosystem API integration layouts */
+.partner-pane-header {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.partner-endpoint-row {
+    background: rgba(255,255,255,0.01);
+    border: 1px solid var(--guard-border);
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.725rem;
+}
+
+.api-status-badge {
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+
+.api-status-badge.synced { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.api-status-badge.loading { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+
+/* Ad click stats panels */
+.ad-stats-card {
+    background: var(--guard-card);
+    border: 1px solid var(--guard-border);
+    border-radius: 14px;
+    padding: 0.75rem;
+    font-size: 0.725rem;
+}
+
+.ad-stats-row {
+    display: flex;
+    justify-content: space-between;
+    color: var(--guard-text-sub);
+    margin-top: 0.2rem;
+}
+
+/* Chronicle warnings logs list */
+.guard-logs-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.guard-log-item-card {
+    background: rgba(31, 41, 55, 0.3);
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid var(--color-blue);
+    font-size: 0.725rem;
+    line-height: 1.4;
+}
+
+.guard-log-item-card.danger {
+    border-left-color: var(--color-rose);
+    background: rgba(225, 29, 72, 0.02);
+}
+
+.guard-log-item-card.warning {
+    border-left-color: var(--color-marigold);
+    background: rgba(217, 119, 6, 0.02);
+}
+
+.guard-log-top {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.15rem;
+}
+
+/* Approvals checklist cards */
+.guard-approvals-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.guard-approval-card {
+    background: var(--guard-card);
+    border: 1px solid var(--guard-border);
+    padding: 0.75rem;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.guard-approval-details h4 {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.guard-approval-details p {
+    font-size: 0.7rem;
+    color: var(--guard-text-sub);
+    margin-top: 0.15rem;
+}
+
+.guard-approval-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.02);
+    padding-top: 0.4rem;
+}
+
+.guard-approval-price {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--guard-accent);
+}
+
+.guard-approval-actions {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.guard-btn-action {
+    padding: 0.35rem 0.65rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+.guard-btn-approve { background: var(--color-teal); color: white; }
+.guard-btn-reject { background: #334155; color: var(--guard-text-sub); }
+
+/* Ledger Commission split entries */
+.guard-ledger-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.guard-ledger-item {
+    background: var(--guard-card);
+    border: 1px solid var(--guard-border);
+    border-radius: 12px;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.725rem;
+}
+
+.guard-ledger-details {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.guard-ledger-split-row {
+    display: flex;
+    justify-content: space-between;
+    color: var(--guard-text-sub);
+    margin-top: 0.15rem;
+}
+
+.guard-ledger-split-row span.split-val {
+    font-family: monospace;
+    color: var(--guard-accent);
+}
+
+/* Fullscreen SOS alarm inside mobile frame boundaries */
+.mobile-sos-critical-flash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(220, 38, 38, 0.95);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    animation: flashBg 0.8s infinite alternate;
+}
+
+.mobile-sos-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    animation: scalePulse 1.2s infinite;
+}
+
+.mobile-sos-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.mobile-sos-box {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.mobile-sos-btn-dismiss {
+    background: white;
+    color: #dc2626;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Badge count indicator */
+.badge-count {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    background: var(--color-rose);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.1rem 0.3rem;
+    border-radius: 9999px;
+    border: 1px solid var(--guard-card);
+}
+
+/* Common Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes sosPulse {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+@keyframes flashBg {
+    0% { background: rgba(220, 38, 38, 0.92); }
+    100% { background: rgba(153, 27, 27, 0.95); }
+}
+
+@keyframes scalePulse {
+    0% { transform: scale(0.97); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(0.97); }
+}
+
+@keyframes livePulse {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
